@@ -97,5 +97,41 @@
         }
         
     }
-    
+}
+
+.bestseller-item{
+    width: 21vw;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: none;
+
+    img{
+        width: 100%;
+    }
+
+    .left{
+        width: 100%;
+        height: 50%;
+        box-sizing: border-box;
+
+        .name{
+            padding: 0;
+        }
+
+        .type{
+            margin-top: 0;
+            margin-inline: auto;
+        }
+    }
+
+    .right{
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        box-sizing: border-box;
+
+        .price{
+            margin-top: 0;
+        }
+    }
 }

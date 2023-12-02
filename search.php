@@ -29,7 +29,7 @@
 
         <div class="section-one">
             <nav>
-                <a href="index.html" class="glowny">
+                <a href="index.php" class="glowny">
                     <img class="logo" src="public/image/logo.png" alt="logo"/>
                     <span class="title">Sklep monopolowy</span>
                 </a>

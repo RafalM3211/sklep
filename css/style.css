@@ -83,6 +83,37 @@
   font-size: 1.1em;
 }
 
+.bestseller-item {
+  width: 21vw;
+  flex-direction: column;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+.bestseller-item img {
+  width: 100%;
+}
+.bestseller-item .left {
+  width: 100%;
+  height: 50%;
+  box-sizing: border-box;
+}
+.bestseller-item .left .name {
+  padding: 0;
+}
+.bestseller-item .left .type {
+  margin-top: 0;
+  margin-inline: auto;
+}
+.bestseller-item .right {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bestseller-item .right .price {
+  margin-top: 0;
+}
+
 body {
   margin: 0;
   font-family: "Aileron", sans-serif;
@@ -251,7 +282,7 @@ html {
 }
 
 .section-two .container {
-  max-width: 960px;
+  max-width: 980px;
   padding-left: 1rem;
   padding-right: 1rem;
   margin: auto;
@@ -273,7 +304,6 @@ html {
 }
 .section-two .section {
   padding: 20px 100px;
-  height: 110vh;
 }
 .section-two .section .gallery {
   display: flex;
@@ -288,6 +318,8 @@ html {
 .section-two .section-b {
   background: #1f3244;
   color: white;
+  height: auto;
+  text-align: center;
 }
 .section-two .section-b .container h2 {
   color: #fff;
@@ -295,6 +327,23 @@ html {
 .section-two .section-b .container p {
   color: #fff;
   font-size: 18px;
+}
+.section-two .section-b #genenare-bestsellers {
+  cursor: pointer;
+  background: #3e95be;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: none;
+  border: none;
+}
+.section-two .section-b #genenare-bestsellers:hover {
+  background: whitesmoke;
+  border-inline-start: 10px solid #3e95be;
+  color: #3e95be;
+  transition: 350ms ease-in;
 }
 .section-two .section-d {
   background: #1f3244;
@@ -325,4 +374,10 @@ html {
 }
 .not-found h3 {
   font-size: 2em;
+}
+
+.bestsellers-list {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */

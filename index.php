@@ -20,6 +20,7 @@
                 'albumLabel': "Obraz %1 z %2"
                 })
             </script>
+        <script src="./main.js" defer ></script>
         <style>
             @import url('https://fonts.cdnfonts.com/css/aileron');
         </style>
@@ -29,7 +30,7 @@
 
         <div class="section-one">
             <nav>
-                <a href="index.html" class="glowny">
+                <a href="index.php" class="glowny">
                     <img class="logo" src="public/image/logo.png" alt="logo"/>
                     <span class="title">Sklep monopolowy</span>
                 </a>
@@ -94,10 +95,60 @@
                 <section class="section section-b">
                     <div class="container">
                     <h2>Nasze bestsellery</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, impedit amet minima iste autem cumque et maiores blanditiis doloribus aut dolorum quaerat non est voluptatum, tempore ut dolorem voluptas quod quae accusantium, ex inventore ducimus. Beatae mollitia exercitationem, quam similique, consectetur ratione reprehenderit delectus neque eligendi facere soluta dolor ducimus!</p>
+                    <p>Odkryj nasze Bestsellery! Zanurz się w wyjątkowym świecie smaków i aromatów, gdzie każdy produkt to mistrzowskie połączenie jakości i doskonałego smaku. Nasza ekskluzywna selekcja bestsellerów to gwarancja niezapomnianych doznań kulinaro-enologicznych. Sprawdź, co podbija serca naszych klientów i znajdź swój ulubiony napój czy przysmak. Każdy produkt z zakładki Bestsellery to pewność, że sięgnąłeś po prawdziwą perełkę! Zobacz nasze dzisiejsze propozycje - dobrane specjalnie dla Ciebie!</p>
                     </div>
+                    <button id="genenare-bestsellers">Wygeneruj propozycje</button>
+                    <div class="bestsellers-list">
+                        <?php
+                            $conn=mysqli_connect("localhost", "root", "", "monopolowy");
+    
+                            $sql="SELECT * FROM `produkty` WHERE ";
 
+                            $ids=array();
+                            for($i=0;$i<4;$i++){
+                                $id=random_int(1, 20);
+                                while(in_array($id, $ids)){
+                                    $id=random_int(1, 20);
+                                }
+                                array_push($ids, $id);
+                                if($i==3){
+                                    $sql.="id_produktu=$id;";
+                                }
+                                else{
+                                    $sql.="id_produktu=$id OR ";
+                                }
+                            }
+                            
 
+                            $res=mysqli_query($conn, $sql);
+                            while($row=mysqli_fetch_assoc($res)){
+                                $name=$row['nazwa_produktu'];
+                                $price=$row['cena_brutto'];
+                                $type=$row['typ_alkoholu'];
+                                $producer=$row['producent'];
+                                $remainingCount=$row['ilosc_magazyn'];
+
+                                $typeClass=strtolower($type);
+                                if($typeClass=="wódka") $typeClass="wodka";
+
+                                echo "
+                                <div class='item bestseller-item'>
+                                    <img src='./public/image/products/$typeClass.jpg' alt='delicje' />
+                                    <div class='left'>
+                                            <p class='name'>$name</p>
+                                            <p class='producer'>$producer</p>
+                                            <p class='type $typeClass'>$type</p>
+                                    </div>
+                                    <div class='right'>
+                                        <p class='price'>$price zł</p>
+                                        <p class='remaining-text'>w magazynie pozostało:</p>
+                                        <p class='remaining'>$remainingCount</p>
+                                    </div>
+                                </div>
+                                ";
+                            }
+                        ?>
+                    </div>
                 </section>
             </div>
 
