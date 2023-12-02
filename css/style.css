@@ -114,6 +114,10 @@
   margin-top: 0;
 }
 
+.form h3 {
+  color: rgb(56, 56, 56);
+}
+
 body {
   margin: 0;
   font-family: "Aileron", sans-serif;
@@ -360,7 +364,7 @@ html {
 }
 .section-two .section-c {
   background: #fff;
-  color: #fff;
+  color: #464646;
 }
 @media (max-width: 960px) {
   .section-two .container {
