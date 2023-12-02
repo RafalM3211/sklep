@@ -1,0 +1,101 @@
+@mixin type-color($color){
+    color: $color;
+    border-color: $color;
+}
+
+.item{
+    display: flex;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 1px 2px 4px rgb(212, 212, 212);
+    color: rgb(56, 56, 56);
+    margin-block: 4em;
+
+    img{
+        width: 35%;
+        background-color: beige;
+        filter: brightness(95%);
+    }
+
+    .left{
+        width: 40%;
+        text-align: left;
+        padding: 1em;
+        padding-left: 2em;
+
+        .name{
+            font-size: 2.5em;
+            margin-block: 0;
+        }
+
+        .producer{
+            margin-top: 0.1em;
+            color: rgb(95, 95, 95);
+        }
+
+        .type{
+            width: fit-content;
+            padding: 5px 10px;
+            border: 1px solid rgb(62 149 190);
+            color: rgb(62 149 190);
+            margin-top: 2em;
+        }
+
+        .gin{
+            @include type-color(rgb(121, 207, 41));
+        }
+
+        .piwo{
+            @include type-color(rgb(192, 92, 34));
+        }
+
+        .rum{
+            @include type-color(brown);
+        }
+
+        .tequilla{
+            @include type-color(rgb(226, 11, 11));
+        }
+
+        .wino{
+            @include type-color(rgb(175, 28, 101));
+        }
+
+        .whisky{
+            @include type-color(rgb(231, 178, 3));
+        }
+
+        .wodka{
+            @include type-color(rgb(62 149 190));
+        }
+    }
+
+    .right{
+        width: 25%;
+        padding-right: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .price{
+            font-size: 2em;
+            margin-bottom: 0;
+        }
+
+        .remaining-text{
+            margin: 0;
+            
+            color: rgb(107, 107, 107);
+        }
+
+        .remaining{
+            margin-top: 0;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+    }
+    
+}

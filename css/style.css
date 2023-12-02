@@ -1,0 +1,328 @@
+.item {
+  display: flex;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 1px 2px 4px rgb(212, 212, 212);
+  color: rgb(56, 56, 56);
+  margin-block: 4em;
+}
+.item img {
+  width: 35%;
+  background-color: beige;
+  filter: brightness(95%);
+}
+.item .left {
+  width: 40%;
+  text-align: left;
+  padding: 1em;
+  padding-left: 2em;
+}
+.item .left .name {
+  font-size: 2.5em;
+  margin-block: 0;
+}
+.item .left .producer {
+  margin-top: 0.1em;
+  color: rgb(95, 95, 95);
+}
+.item .left .type {
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid rgb(62, 149, 190);
+  color: rgb(62, 149, 190);
+  margin-top: 2em;
+}
+.item .left .gin {
+  color: rgb(121, 207, 41);
+  border-color: rgb(121, 207, 41);
+}
+.item .left .piwo {
+  color: rgb(192, 92, 34);
+  border-color: rgb(192, 92, 34);
+}
+.item .left .rum {
+  color: brown;
+  border-color: brown;
+}
+.item .left .tequilla {
+  color: rgb(226, 11, 11);
+  border-color: rgb(226, 11, 11);
+}
+.item .left .wino {
+  color: rgb(175, 28, 101);
+  border-color: rgb(175, 28, 101);
+}
+.item .left .whisky {
+  color: rgb(231, 178, 3);
+  border-color: rgb(231, 178, 3);
+}
+.item .left .wodka {
+  color: rgb(62, 149, 190);
+  border-color: rgb(62, 149, 190);
+}
+.item .right {
+  width: 25%;
+  padding-right: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.item .right .price {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+.item .right .remaining-text {
+  margin: 0;
+  color: rgb(107, 107, 107);
+}
+.item .right .remaining {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+body {
+  margin: 0;
+  font-family: "Aileron", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  overflow-x: hidden;
+  background-color: whitesmoke;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1f3244;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#wave {
+  position: absolute;
+  z-index: 2;
+}
+
+.section-one nav {
+  z-index: 3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  padding: 5px 0;
+}
+.section-one nav .logo {
+  height: 11vh;
+  width: auto;
+  padding-left: 50px;
+}
+.section-one nav .menu {
+  width: 65%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: self-end;
+}
+.section-one nav li {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #1f3244;
+  font-weight: 500;
+  text-decoration: none;
+  list-style-type: none;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.section-one nav li:hover {
+  color: #3e95be;
+  transition: 350ms ease-in-out;
+}
+.section-one nav li.choosen {
+  color: #3e95be;
+}
+.section-one nav a {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.section-one nav .glowny {
+  margin-top: 30px;
+}
+.section-one nav .glowny .title {
+  color: #1f3244;
+  margin-right: 5vw;
+  font-family: "Aileron", sans-serif;
+  font-weight: 800;
+  font-size: 1.5vw;
+  margin-left: 5px;
+  text-transform: uppercase;
+}
+.section-one nav .search {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  border-bottom: 2px solid #1f3244;
+}
+.section-one nav .search input[type=text] {
+  border: none;
+  appearance: none;
+  outline: none;
+  padding: 0px;
+  width: 150px;
+  background-color: transparent;
+  font-size: 15px;
+  padding: 7px 10px;
+  opacity: 70%;
+}
+.section-one nav .search input[type=text]:focus {
+  color: #3e95be;
+  transition: 0.1s;
+}
+.section-one nav .search .search-button {
+  display: none;
+}
+.section-one header {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  max-width: 960px;
+  padding-left: 0 1rem;
+  margin: auto;
+  text-align: center;
+}
+.section-one .video-background {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+.section-one .video-background video {
+  min-height: 100%;
+  min-width: 100%;
+}
+.section-one .video-overlay {
+  height: 90vh;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+  background: #1f3244;
+  opacity: 60%;
+}
+.section-one .header-content {
+  z-index: 2;
+}
+.section-one .header-content h1 {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+.section-one .header-content p {
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
+}
+.section-one .header-content .btn {
+  background: #3e95be;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.section-one .header-content .btn:hover {
+  background: whitesmoke;
+  border-inline-start: 10px solid #3e95be;
+  color: #3e95be;
+  transition: 350ms ease-in;
+}
+
+.section-two .container {
+  max-width: 960px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  text-align: center;
+}
+.section-two section h2 {
+  padding: 5px;
+  font-size: 35px;
+  color: #3e95be;
+  font-weight: 900;
+}
+.section-two section p {
+  font-size: 18px;
+  color: #1f3244;
+  padding-bottom: 30px;
+}
+.section-two section a {
+  padding: 10px;
+}
+.section-two .section {
+  padding: 20px 100px;
+  height: 110vh;
+}
+.section-two .section .gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.section-two .section .gallery img {
+  border-radius: 6px;
+  width: 270px;
+  height: auto;
+}
+.section-two .section-b {
+  background: #1f3244;
+  color: white;
+}
+.section-two .section-b .container h2 {
+  color: #fff;
+}
+.section-two .section-b .container p {
+  color: #fff;
+  font-size: 18px;
+}
+.section-two .section-d {
+  background: #1f3244;
+  color: white;
+  height: 25vh;
+  display: flex;
+  flex-flow: row;
+}
+.section-two .section-d .container h2 {
+  color: #fff;
+}
+.section-two .section-d .container p {
+  color: #fff;
+}
+.section-two .section-c {
+  background: #fff;
+  color: #fff;
+}
+@media (max-width: 960px) {
+  .section-two .container {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+
+.not-found {
+  height: 31.5vh;
+}
+.not-found h3 {
+  font-size: 2em;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,14 @@
+$PrimaryColor: #ffffff;
+
+@mixin sections{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    flex-direction: column nowrap;
+    color: red;
+    padding: 60px 0;
+}
+
+$BrightColor: #3e95be;
+$DarkColor: #1f3244;
+
