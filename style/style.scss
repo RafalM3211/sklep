@@ -126,6 +126,15 @@ body::-webkit-scrollbar-thumb {
                 display: none;
             }
 
+            svg{
+                fill: rgba(31, 50, 68, 1);
+                cursor: pointer;
+            }
+
+            svg:hover{
+                fill: rgb(80 148 213);
+            }
+
         }
     }
     

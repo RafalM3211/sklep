@@ -249,6 +249,13 @@ html {
 .section-one nav .search .search-button {
   display: none;
 }
+.section-one nav .search svg {
+  fill: rgb(31, 50, 68);
+  cursor: pointer;
+}
+.section-one nav .search svg:hover {
+  fill: rgb(80, 148, 213);
+}
 .section-one header {
   height: 90vh;
   display: flex;
