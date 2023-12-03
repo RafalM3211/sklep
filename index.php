@@ -62,7 +62,7 @@
                         <div class="header-content">
                             <h1 class="title">Witaj!</h1>
                             <p>Unikatowe alkohole, szeroki wybór, aromatyczne wina, doskonałe whisky, ekspercka obsługa, pasja degustacji, wyjątkowe doznania smakowe.</p>
-                            <a href="#news" class="btn">Zobacz więcej</a>
+                            <a href="#news" class="btn">Zobacz więcej </a>
                         </div>
             </header>
             
@@ -196,15 +196,15 @@
                         </section>
                         <section class="payment">
                             <label>
-                                <p>płatność kartą</p>
+                                <p>Płatność kartą</p>
                                 <input value="karta kredytowa" type="radio" name="payment" checked />
                             </label>
                             <label>
-                                <p>płatność gotówką</p>
+                                <p>Płatność gotówką</p>
                                 <input value="gotówka" type="radio"  name="payment" />
                             </label>
                             <label>
-                                <p>przelew</p>
+                                <p>Przelew</p>
                                 <input value="przelew" type="radio"  name="payment" />
                             </label>
                         </section>
