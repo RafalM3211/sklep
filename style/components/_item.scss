@@ -5,13 +5,14 @@
 
 .item{
     display: flex;
-    width: 100%;
+    width: 85%;
     background-color: rgb(255, 255, 255);
     border-radius: 3px;
     overflow: hidden;
     box-shadow: 1px 2px 4px rgb(212, 212, 212);
     color: rgb(56, 56, 56);
-    margin-block: 4em;
+    margin: 4em auto;
+    font-size: 0.8em;
 
     img{
         width: 35%;
@@ -41,6 +42,28 @@
             border: 1px solid rgb(62 149 190);
             color: rgb(62 149 190);
             margin-top: 2em;
+            font-size: 1.2em;
+        }
+
+        $btn_color: rgb(41, 207, 124);
+
+        .order{
+            margin-top: 40px;
+            font-size: 1.3em;
+            padding: 5px 15px;
+            border-radius: 4px;
+            background-color: $btn_color;
+            color: white;
+            border-style: solid;
+            border-color: $btn_color;
+            transition: all 0.1s;
+            cursor: pointer;
+            display: block;
+        }
+
+        .order:hover{
+            background-color: rgb(255, 255, 255);
+            color: $btn_color;
         }
 
         .gin{
@@ -93,7 +116,7 @@
         .remaining{
             margin-top: 0;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
         
     }
@@ -120,6 +143,10 @@
 
         .type{
             margin-top: 0;
+            margin-inline: auto;
+        }
+
+        .order{
             margin-inline: auto;
         }
     }

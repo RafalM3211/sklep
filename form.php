@@ -36,7 +36,7 @@
                 <ul class="menu">
                     <a href="#news"><li class="choosen">o firmie</li></a>
                     <a href="#best"><li>Bestsellery</li></a>
-                    <a href="form.php"><li>formularz</li></a>
+                    <a href="#formular"><li>formularz</li></a>
                     <a href="#"><li>logowanie</li></a>
                     <a href="#"><li>kontakt</li></a>
                     <li>
@@ -53,65 +53,89 @@
         </div>
 
         <main class="section-two">
-            <div class="container">
-                <?php
-                    try{
-                        if(isset($_POST["search-text"])){
-                            $searchText=$_POST["search-text"];
-    
-                            $conn=mysqli_connect("localhost", "root", "", "monopolowy");
-    
-                            $sql="SELECT * FROM `produkty` WHERE nazwa_produktu LIKE '%$searchText%';";
+            <div id="formular">
+                <section class="section section-c">
+                    <div class="container">
+                    <h2>Zamów produkt</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, impedit amet minima iste autem cumque et maiores blanditiis doloribus aut dolorum quaerat non est voluptatum, tempore ut dolorem voluptas quod quae accusantium, ex inventore ducimus. Beatae mollitia exercitationem, quam similique, consectetur ratione reprehenderit delectus neque eligendi facere soluta dolor ducimus!</p>
+                    <form class="form" method="POST" action="index.php">
+                        <section class="product">
+                            <label>
+                                <p>Wybierz produkt:</p>
+                                
+                                <select name="name" required>
+                                    <?php
+                                        $fetched_id=null;
+                                        if(isset($_POST['id'])){
+                                            $fetched_id=$_POST['id'];
+                                        }
+
+                                        $conn=mysqli_connect("localhost", "root", "", "monopolowy");
+                                        $sql="SELECT id_produktu, nazwa_produktu FROM `produkty`";
+                                        $res=mysqli_query($conn, $sql);
+                                        while($row=mysqli_fetch_assoc($res)){
+                                            $id=$row["id_produktu"];
+                                            $name=$row["nazwa_produktu"];
+                                            if($id==$fetched_id){
+                                                echo "<option selected value='$id'>$name</option>";
+                                            }
+                                            else {
+                                                echo "<option value='$id'>$name</option>";
+                                            }
+                                            
+                                        }
+                                    ?>
+                                </select>
+                            </label>
+                            <label>
+                                <p>Wybierz ilość:</p>
+                                <input name="count" type="number" placeholder="50" required />
+                            </label>
+                        </section>
+                        <section class="contact">
+                            <h3 class="contact-header">dane kontaktowe</h3>
+                            <label>
+                                <p>adres email:</p>
+                                <input name="email" type="email" required />
+                            </label>
+                            <label>
+                                <p>numer telefonu:</p>
+                                <input name="phone" type="tel" required />
+                            </label>
+                            <label>
+                                <p>adres zamieszkania:</p>
+                                <input name="adress" type="text" required />
+                            </label>
+                        </section>
+                        <section class="payment">
+                            <label>
+                                <p>płatność kartą</p>
+                                <input value="karta kredytowa" type="radio" name="payment" checked />
+                            </label>
+                            <label>
+                                <p>płatność gotówką</p>
+                                <input value="gotówka" type="radio"  name="payment" />
+                            </label>
+                            <label>
+                                <p>przelew</p>
+                                <input value="przelew" type="radio"  name="payment" />
+                            </label>
+                        </section>
+                        <input type="submit" value="zamów" />
+                    </form>
+                    <?php
+                        if(isset($_POST["email"])){
+                            $product_id=$_POST["name"];
+                            $client_id=2;
+                            $payment=$_POST["payment"];
+                            $count=$_POST["count"];
+                            $date=date("y-m-d h:i:s");
+                            $supplier_id=random_int(1, 5);
+                            $sql="INSERT INTO `zamowienia` (id_produktu, id_klienta, sposob_platnosci, status_zamowienia, ilosc_sztuk, data_zlozenia, id_dostawcy)
+                            VALUES ($product_id, $client_id, '$payment', 'W trakcie realizacji', $count, '$date', $supplier_id);";
                             $res=mysqli_query($conn, $sql);
-                            if(mysqli_num_rows($res)==0){
-                                echo "
-                                    <div class='not-found'>
-                                        <h3>Brak wyników wyszukiwania</h3>
-                                        <p>Spróbuj wyszukać inny produkt</p>
-                                    </div>
-                                ";
-                            }
-                            while($row=mysqli_fetch_assoc($res)){
-                                $id=$row['id_produktu'];
-                                $name=$row['nazwa_produktu'];
-                                $price=$row['cena_brutto'];
-                                $type=$row['typ_alkoholu'];
-                                $producer=$row['producent'];
-                                $remainingCount=$row['ilosc_magazyn'];
-
-                                $typeClass=strtolower($type);
-                                if($typeClass=="wódka") $typeClass="wodka";
-
-                                echo "
-                                <div class='item'>
-                                <img src='./public/image/products/$typeClass.jpg' alt='delicje' />
-                                <div class='left'>
-                                    <p class='name'>$name</p>
-                                    <p class='producer'>$producer</p>
-                                    <p class='type $typeClass'>$type</p>
-                                    <form action='form.php' method='POST' >
-                                        <input style='display: none' type='number' name='id' value='$id' />
-                                        <input type='submit' class='order' value='zamów' />
-                                    </form>
-                                    
-                                </div>
-                                <div class='right'>
-                                    <p class='price'>$price zł</p>
-                                    <p class='remaining-text'>w magazynie pozostało:</p>
-                                    <p class='remaining'>$remainingCount</p>
-                                </div>
-                            </div>
-                                ";
-                            }
-    
                         }
-                    }
-                    catch(Exception $e){
-                        echo $e;
-                    }
-
-                    
-                ?>
+                    ?>
             </div>
         </main>
 

@@ -1,12 +1,13 @@
 .item {
   display: flex;
-  width: 100%;
+  width: 85%;
   background-color: rgb(255, 255, 255);
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 1px 2px 4px rgb(212, 212, 212);
   color: rgb(56, 56, 56);
-  margin-block: 4em;
+  margin: 4em auto;
+  font-size: 0.8em;
 }
 .item img {
   width: 35%;
@@ -33,6 +34,24 @@
   border: 1px solid rgb(62, 149, 190);
   color: rgb(62, 149, 190);
   margin-top: 2em;
+  font-size: 1.2em;
+}
+.item .left .order {
+  margin-top: 40px;
+  font-size: 1.3em;
+  padding: 5px 15px;
+  border-radius: 4px;
+  background-color: rgb(41, 207, 124);
+  color: white;
+  border-style: solid;
+  border-color: rgb(41, 207, 124);
+  transition: all 0.1s;
+  cursor: pointer;
+  display: block;
+}
+.item .left .order:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(41, 207, 124);
 }
 .item .left .gin {
   color: rgb(121, 207, 41);
@@ -80,7 +99,7 @@
 .item .right .remaining {
   margin-top: 0;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .bestseller-item {
@@ -102,6 +121,9 @@
 }
 .bestseller-item .left .type {
   margin-top: 0;
+  margin-inline: auto;
+}
+.bestseller-item .left .order {
   margin-inline: auto;
 }
 .bestseller-item .right {
