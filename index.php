@@ -156,13 +156,15 @@
                 <section class="section section-c">
                     <div class="container">
                     <h2>Zamów produkt</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, impedit amet minima iste autem cumque et maiores blanditiis doloribus aut dolorum quaerat non est voluptatum, tempore ut dolorem voluptas quod quae accusantium, ex inventore ducimus. Beatae mollitia exercitationem, quam similique, consectetur ratione reprehenderit delectus neque eligendi facere soluta dolor ducimus!</p>
+                    <p>Okres wysyłki to zwykle <u>3-5 dni</u> roboczych</p>
                     <form class="form" method="POST" action="index.php">
+                        <div class="inputs">
                         <section class="product">
                             <label>
-                                <p>Wybierz produkt:</p>
+                            <h3 class="contact-header">Wybierz produkt:</h3>
                                 
-                                <select name="name" required>
+                                <select name="name" required >
+                                    <option style="color: black;" value="" selected disabled hidden>Wybierz</option>
                                     <?php
                                         $sql="SELECT id_produktu, nazwa_produktu FROM `produkty`";
                                         $res=mysqli_query($conn, $sql);
@@ -175,40 +177,44 @@
                                 </select>
                             </label>
                             <label>
-                                <p>Wybierz ilość:</p>
+                                <h3 class="contact-header">Wbierz ilość:</h3>
                                 <input name="count" type="number" placeholder="50" required />
                             </label>
                         </section>
                         <section class="contact">
-                            <h3 class="contact-header">dane kontaktowe</h3>
+                            <h3 class="contact-header">Dane kontaktowe:</h3>
                             <label>
                                 <p>adres email:</p>
-                                <input name="email" type="email" required />
+                                <input name="email" type="email" required placeholder="Wpisz email"/>
                             </label>
                             <label>
                                 <p>numer telefonu:</p>
-                                <input name="phone" type="tel" required />
+                                <input name="phone" type="tel" required placeholder="Wpisz nr telefonu"/>
                             </label>
                             <label>
                                 <p>adres zamieszkania:</p>
-                                <input name="adress" type="text" required />
+                                <input name="adress" type="text" required placeholder="Wpisz adres"/>
                             </label>
                         </section>
                         <section class="payment">
-                            <label>
-                                <p>Płatność kartą</p>
-                                <input value="karta kredytowa" type="radio" name="payment" checked />
-                            </label>
-                            <label>
-                                <p>Płatność gotówką</p>
-                                <input value="gotówka" type="radio"  name="payment" />
-                            </label>
-                            <label>
-                                <p>Przelew</p>
-                                <input value="przelew" type="radio"  name="payment" />
-                            </label>
+                        <h3 class="contact-header">Płatność:</h3>
+                            <div class="payment-bottom">
+                                <label>
+                                    <input value="karta kredytowa" type="radio" name="payment" checked />
+                                    <p>Płatność kartą</p>
+                                </label>
+                                <label>
+                                    <input value="gotówka" type="radio"  name="payment" />
+                                    <p>Płatność gotówką</p>
+                                </label>
+                                <label>
+                                    <input value="przelew" type="radio"  name="payment" />
+                                    <p>Przelew</p>
+                                </label>
+                                </div>
                         </section>
-                        <input type="submit" value="zamów" />
+                        </div>
+                        <input type="submit" value="Zamów" />
                     </form>
                     <?php
                         if(isset($_POST["email"])){

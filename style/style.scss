@@ -126,6 +126,17 @@ body::-webkit-scrollbar-thumb {
                 display: none;
             }
 
+            svg:hover{
+                cursor: pointer;
+                path{
+                    fill: $BrightColor;
+
+                }
+                .search{
+                    border-bottom: 2px solid $BrightColor;
+                }
+            }
+
         }
     }
     
@@ -214,7 +225,6 @@ body::-webkit-scrollbar-thumb {
     section p{
         font-size: 18px;
         color: $DarkColor;
-        padding-bottom: 30px;
     }
 
     section a{
@@ -227,11 +237,18 @@ body::-webkit-scrollbar-thumb {
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
+            margin: 50px;
             img{
                 border-radius: 6px;
                 width: 270px;
                 height: auto;
             }
+            img:hover{
+                filter: grayscale(80%);
+                transition: 350ms ease-in-out;
+                cursor: pointer;
+            }
+        }
         }
       }
       
@@ -254,20 +271,19 @@ body::-webkit-scrollbar-thumb {
 
         #genenare-bestsellers{
             cursor: pointer;
-            background: #3e95be;
-            color:#fff;
+            color: #3e95be;
             font-size:1.2rem;
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 6px;
             box-shadow: none;
             border: none;
+            background: transparent;
+            text-decoration: underline;
         }
 
         #genenare-bestsellers:hover{
-            background: whitesmoke;
-            border-inline-start: 10px solid #3e95be;
-            color: #3e95be;
+            color: #fff;
             transition: 350ms ease-in;
         }
       }
@@ -293,6 +309,87 @@ body::-webkit-scrollbar-thumb {
       .section-c{
         background: #fff;
         color:#464646;
+        .container{
+            //max-width: none;
+            form{
+                margin: 50px 0;
+                display: flex;
+                flex-flow: column nowrap;
+                background: #f5f5f5;
+                border-radius: 6px;
+                padding: 30px;
+                input{
+                    border: none;
+                    border-bottom: 2px solid $BrightColor;
+                    padding: 5px;
+                    color: $BrightColor;
+                    font-size: 1em;
+                }
+                
+                input[type="submit"]{
+                    margin-top: 100px;
+                    margin-left: auto;
+                    border: 2px solid $BrightColor;
+                    width: 120px;
+                    background: $BrightColor;
+                    padding: 10px;
+                    border-radius: 6px;
+                    color: #fff;
+                    font-size: 1.2em;
+
+                }
+                input[type="submit"]:hover{
+                    border: 2px solid $BrightColor;
+                    color: $BrightColor;
+                    background: #f5f5f5;
+                    transition: 350ms ease-in-out;
+                    cursor: pointer;
+                }
+
+                .inputs{
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-evenly;
+                    .product{
+                        label{
+                            select{
+                                border: none;
+                                border-bottom: 2px solid $BrightColor;
+                                padding: 5px;
+                                color: $BrightColor;
+                                width: 200px;
+                                font-size: 1em;
+                            }
+                        }
+                    }
+
+                    .contact{
+                        p{
+                            margin: 0;
+                            text-align: left;
+                        }
+
+                    }
+                    .payment{
+                        display: flex;
+                        flex-flow: column nowrap;
+                        .payment-bottom{
+                            display: flex;
+                            flex-flow: column;
+                        label{
+                            margin: 2px;
+                            display: flex;
+                            p{
+                                margin: 0;
+                            }
+                        }
+                    }
+                    }
+                }
+
+            }
+        };
+
       }
       
       @media(max-width:960px){
@@ -302,11 +399,11 @@ body::-webkit-scrollbar-thumb {
         }
       }
 
-}
+
 
   
 .not-found{
-    height: 31.5vh;
+    margin: 170px;
     h3{
         font-size: 2em;
     }

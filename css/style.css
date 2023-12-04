@@ -28,6 +28,7 @@
   color: rgb(95, 95, 95);
 }
 .item .left .type {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 5px 10px;
   border: 1px solid rgb(62, 149, 190);
@@ -211,7 +212,9 @@ html {
 }
 .section-one nav .search input[type=text] {
   border: none;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   outline: none;
   padding: 0px;
   width: 150px;
@@ -226,6 +229,15 @@ html {
 }
 .section-one nav .search .search-button {
   display: none;
+}
+.section-one nav .search svg:hover {
+  cursor: pointer;
+}
+.section-one nav .search svg:hover path {
+  fill: #3e95be;
+}
+.section-one nav .search svg:hover .search {
+  border-bottom: 2px solid #3e95be;
 }
 .section-one header {
   height: 90vh;
@@ -301,7 +313,6 @@ html {
 .section-two section p {
   font-size: 18px;
   color: #1f3244;
-  padding-bottom: 30px;
 }
 .section-two section a {
   padding: 10px;
@@ -313,68 +324,141 @@ html {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  margin: 50px;
 }
 .section-two .section .gallery img {
   border-radius: 6px;
   width: 270px;
   height: auto;
 }
-.section-two .section-b {
+.section-two .section .gallery img:hover {
+  filter: grayscale(80%);
+  transition: 350ms ease-in-out;
+  cursor: pointer;
+}
+
+.section-b {
   background: #1f3244;
   color: white;
   height: auto;
   text-align: center;
 }
-.section-two .section-b .container h2 {
+.section-b .container h2 {
   color: #fff;
 }
-.section-two .section-b .container p {
+.section-b .container p {
   color: #fff;
   font-size: 18px;
 }
-.section-two .section-b #genenare-bestsellers {
+.section-b #genenare-bestsellers {
   cursor: pointer;
-  background: #3e95be;
-  color: #fff;
+  color: #3e95be;
   font-size: 1.2rem;
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 6px;
   box-shadow: none;
   border: none;
+  background: transparent;
+  text-decoration: underline;
 }
-.section-two .section-b #genenare-bestsellers:hover {
-  background: whitesmoke;
-  border-inline-start: 10px solid #3e95be;
-  color: #3e95be;
+.section-b #genenare-bestsellers:hover {
+  color: #fff;
   transition: 350ms ease-in;
 }
-.section-two .section-d {
+
+.section-d {
   background: #1f3244;
   color: white;
   height: 25vh;
   display: flex;
   flex-flow: row;
 }
-.section-two .section-d .container h2 {
+.section-d .container h2 {
   color: #fff;
 }
-.section-two .section-d .container p {
+.section-d .container p {
   color: #fff;
 }
-.section-two .section-c {
+
+.section-c {
   background: #fff;
   color: #464646;
 }
+.section-c .container form {
+  margin: 50px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 30px;
+}
+.section-c .container form input {
+  border: none;
+  border-bottom: 2px solid #3e95be;
+  padding: 5px;
+  color: #3e95be;
+  font-size: 1em;
+}
+.section-c .container form input[type=submit] {
+  margin-top: 100px;
+  margin-left: auto;
+  border: 2px solid #3e95be;
+  width: 120px;
+  background: #3e95be;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.2em;
+}
+.section-c .container form input[type=submit]:hover {
+  border: 2px solid #3e95be;
+  color: #3e95be;
+  background: #f5f5f5;
+  transition: 350ms ease-in-out;
+  cursor: pointer;
+}
+.section-c .container form .inputs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+.section-c .container form .inputs .product label select {
+  border: none;
+  border-bottom: 2px solid #3e95be;
+  padding: 5px;
+  color: #3e95be;
+  width: 200px;
+  font-size: 1em;
+}
+.section-c .container form .inputs .contact p {
+  margin: 0;
+  text-align: left;
+}
+.section-c .container form .inputs .payment {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.section-c .container form .inputs .payment .payment-bottom {
+  display: flex;
+  flex-flow: column;
+}
+.section-c .container form .inputs .payment .payment-bottom label {
+  margin: 2px;
+  display: flex;
+}
+.section-c .container form .inputs .payment .payment-bottom label p {
+  margin: 0;
+}
+
 @media (max-width: 960px) {
-  .section-two .container {
+  .container {
     padding-right: 3rem;
     padding-left: 3rem;
   }
 }
-
 .not-found {
-  height: 31.5vh;
+  margin: 170px;
 }
 .not-found h3 {
   font-size: 2em;
