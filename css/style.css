@@ -658,4 +658,66 @@ html {
   position: relative;
   z-index: 213;
 }
+
+.big-search .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row nowrap;
+          flex-direction: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  cursor: pointer;
+  border-bottom: 2px solid #1f3244;
+}
+
+.big-search .search h2 {
+  font-size: 2em;
+}
+
+.big-search .search input[type="text"] {
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  padding: 0px;
+  width: 150px;
+  background-color: transparent;
+  font-size: 15px;
+  padding: 7px 10px;
+  opacity: 70%;
+}
+
+.big-search .search input[type="text"]:focus {
+  color: #3e95be;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.big-search .search .search-button {
+  display: none;
+}
+
+.big-search .search svg:hover {
+  cursor: pointer;
+}
+
+.big-search .search svg:hover path {
+  fill: #3e95be;
+}
+
+.big-search .search svg:hover .search {
+  border-bottom: 2px solid #3e95be;
+}
+
+.big-search .search-button {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */
