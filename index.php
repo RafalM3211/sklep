@@ -38,7 +38,7 @@
                     <a href="#news"><li class="choosen">o firmie</li></a>
                     <a href="#best"><li>Bestsellery</li></a>
                     <a href="form.php"><li>formularz</li></a>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"  ><li>logowanie</li></a>
+                    <a href="login.php"  ><li>logowanie</li></a>
                     <a href="search.php"  ><li>wyszukaj</li></a>
                     <li>
                         <form class="search" action="search.php" method="POST" >
