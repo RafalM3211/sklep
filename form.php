@@ -1,3 +1,23 @@
+<?php
+    session_start();
+
+
+    if(isset($_SESSION['user'])){
+        $user=$_SESSION['user'];
+        $client_id=$user->id_klienta;
+        $email=$user->adres_email;
+        $phone=$user->numer_telefonu;
+        $adress=$user->adres;
+    }
+    else{
+        $client_id=null;
+        $email="";
+        $phone="";
+        $adress="";
+    }
+
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,7 +69,7 @@
                     <div class="container">
                     <h2>Zamów produkt</h2>
                     <p>Odkryj wygodę zakupów w naszym sklepie monopolowym bez wychodzenia z domu! Teraz możesz zamówić swoje ulubione alkohole online. Prosta i szybka platforma zamówień umożliwia dostęp do bogatej gamy trunków. Wystarczy kilka kliknięć, aby cieszyć się ulubionymi napojami w zaciszu własnego domu. Zrealizuj zamówienie już dziś i delektuj się wyjątkowym smakiem dostarczonym prosto pod Twój adres!</p>
-                        
+                    
                     <form class="form" method="POST" action="form.php">
                         <div class="inputs">
                         <section class="product">
@@ -90,15 +110,15 @@
                             <h3 class="contact-header">Dane kontaktowe:</h3>
                             <label>
                                 <p>adres email:</p>
-                                <input name="email" type="email" required placeholder="Wpisz email"/>
+                                <input <?php echo "value='$email'" ?> name="email" type="email" required placeholder="Wpisz email"/>
                             </label>
                             <label>
                                 <p>numer telefonu:</p>
-                                <input name="phone" type="tel" required placeholder="Wpisz nr telefonu"/>
+                                <input <?php echo "value='$phone'" ?> name="phone" type="tel" required placeholder="Wpisz nr telefonu"/>
                             </label>
                             <label>
                                 <p>adres zamieszkania:</p>
-                                <input name="adress" type="text" required placeholder="Wpisz adres"/>
+                                <input <?php echo "value='$adress'" ?>  name="adress" type="text" required placeholder="Wpisz adres"/>
                             </label>
                         </section>
                         <section class="payment">
@@ -121,6 +141,21 @@
                         </div>
                         <input type="submit" value="Zamów" />
                     </form>
+                    <?php
+                        if(isset($_POST["email"])){
+                            $product_id=$_POST["name"];
+                            $payment=$_POST["payment"];
+                            $count=$_POST["count"];
+                            $date=date("y-m-d h:i:s");
+                            $supplier_id=random_int(1, 5);
+
+
+
+                            $sql="INSERT INTO `zamowienia` (id_produktu, id_klienta, sposob_platnosci, status_zamowienia, ilosc_sztuk, data_zlozenia, id_dostawcy)
+                            VALUES ($product_id, $client_id, '$payment', 'W trakcie realizacji', $count, '$date', $supplier_id);";
+                            $res=mysqli_query($conn, $sql);
+                        }
+                    ?>
             </div>
         </main>
 

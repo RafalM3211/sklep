@@ -1,7 +1,7 @@
-<!DOCTYPE html>
 <?php
     session_start();
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="css/style.css">
@@ -74,8 +74,7 @@
                     $wynik = mysqli_query($baza, $zapytanie1);
     
                     if(mysqli_num_rows($wynik)) {
-                        $_SESSION['uzytkownik'] = mysqli_fetch_object($wynik);
-                        $_SESSION['test'] = "mysqli_fetch_object($email)";
+                        $_SESSION['user'] = mysqli_fetch_object($wynik);
                         echo "Zalogowano pomyślnie!";
                     }
                     else {
