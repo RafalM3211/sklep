@@ -11,15 +11,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
         <link href="./style/lightbox.min.css" rel="stylesheet" />
-        <script src="./style/lightbox-plus-jquery.min.js"></script> <!--https://lokeshdhakar.com/projects/lightbox2/-->
-            <script>
-                lightbox.option({
-                'resizeDuration': 600,
-                'wrapAround': true,
-                'alwaysShowNavOnTouchDevice': true,
-                'albumLabel': "Obraz %1 z %2"
-                })
-            </script>
         <style>
             @import url('https://fonts.cdnfonts.com/css/aileron');
         </style>
@@ -34,11 +25,11 @@
                     <span class="title">Sklep monopolowy</span>
                 </a>
                 <ul class="menu">
-                    <a href="#news"><li class="choosen">o firmie</li></a>
-                    <a href="#best"><li>Bestsellery</li></a>
-                    <a href="#formular"><li>formularz</li></a>
-                    <a href="#"><li>logowanie</li></a>
-                    <a href="#"><li>kontakt</li></a>
+                    <a href="index.php#news"><li>o firmie</li></a>
+                    <a href="index.php#best"><li>Bestsellery</li></a>
+                    <a href="form.php"><li class="choosen">formularz</li></a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"  ><li>logowanie</li></a>
+                    <a href="search.php"  ><li>wyszukaj</li></a>
                     <li>
                         <form class="search" action="search.php" method="POST" >
                             <input type="text" name="search-text" placeholder="Wyszukaj" size="6"/>
@@ -57,13 +48,16 @@
                 <section class="section section-c">
                     <div class="container">
                     <h2>Zamów produkt</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, impedit amet minima iste autem cumque et maiores blanditiis doloribus aut dolorum quaerat non est voluptatum, tempore ut dolorem voluptas quod quae accusantium, ex inventore ducimus. Beatae mollitia exercitationem, quam similique, consectetur ratione reprehenderit delectus neque eligendi facere soluta dolor ducimus!</p>
-                    <form class="form" method="POST" action="index.php">
+                    <p>Odkryj wygodę zakupów w naszym sklepie monopolowym bez wychodzenia z domu! Teraz możesz zamówić swoje ulubione alkohole online. Prosta i szybka platforma zamówień umożliwia dostęp do bogatej gamy trunków. Wystarczy kilka kliknięć, aby cieszyć się ulubionymi napojami w zaciszu własnego domu. Zrealizuj zamówienie już dziś i delektuj się wyjątkowym smakiem dostarczonym prosto pod Twój adres!</p>
+                        
+                    <form class="form" method="POST" action="form.php">
+                        <div class="inputs">
                         <section class="product">
                             <label>
-                                <p>Wybierz produkt:</p>
+                            <h3 class="contact-header">Wybierz produkt:</h3>
                                 
-                                <select name="name" required>
+                                <select name="name" required >
+                                    <option style="color: black;" value="" selected disabled hidden>Wybierz</option>
                                     <?php
                                         $fetched_id=null;
                                         if(isset($_POST['id'])){
@@ -82,60 +76,51 @@
                                             else {
                                                 echo "<option value='$id'>$name</option>";
                                             }
-                                            
+
                                         }
                                     ?>
                                 </select>
                             </label>
                             <label>
-                                <p>Wybierz ilość:</p>
+                                <h3 class="contact-header">Wbierz ilość:</h3>
                                 <input name="count" type="number" placeholder="50" required />
                             </label>
                         </section>
                         <section class="contact">
-                            <h3 class="contact-header">dane kontaktowe</h3>
+                            <h3 class="contact-header">Dane kontaktowe:</h3>
                             <label>
                                 <p>adres email:</p>
-                                <input name="email" type="email" required />
+                                <input name="email" type="email" required placeholder="Wpisz email"/>
                             </label>
                             <label>
                                 <p>numer telefonu:</p>
-                                <input name="phone" type="tel" required />
+                                <input name="phone" type="tel" required placeholder="Wpisz nr telefonu"/>
                             </label>
                             <label>
                                 <p>adres zamieszkania:</p>
-                                <input name="adress" type="text" required />
+                                <input name="adress" type="text" required placeholder="Wpisz adres"/>
                             </label>
                         </section>
                         <section class="payment">
-                            <label>
-                                <p>płatność kartą</p>
-                                <input value="karta kredytowa" type="radio" name="payment" checked />
-                            </label>
-                            <label>
-                                <p>płatność gotówką</p>
-                                <input value="gotówka" type="radio"  name="payment" />
-                            </label>
-                            <label>
-                                <p>przelew</p>
-                                <input value="przelew" type="radio"  name="payment" />
-                            </label>
+                        <h3 class="contact-header">Płatność:</h3>
+                            <div class="payment-bottom">
+                                <label>
+                                    <input value="karta kredytowa" type="radio" name="payment" checked />
+                                    <p>Płatność kartą</p>
+                                </label>
+                                <label>
+                                    <input value="gotówka" type="radio"  name="payment" />
+                                    <p>Płatność gotówką</p>
+                                </label>
+                                <label>
+                                    <input value="przelew" type="radio"  name="payment" />
+                                    <p>Przelew</p>
+                                </label>
+                                </div>
                         </section>
-                        <input type="submit" value="zamów" />
+                        </div>
+                        <input type="submit" value="Zamów" />
                     </form>
-                    <?php
-                        if(isset($_POST["email"])){
-                            $product_id=$_POST["name"];
-                            $client_id=2;
-                            $payment=$_POST["payment"];
-                            $count=$_POST["count"];
-                            $date=date("y-m-d h:i:s");
-                            $supplier_id=random_int(1, 5);
-                            $sql="INSERT INTO `zamowienia` (id_produktu, id_klienta, sposob_platnosci, status_zamowienia, ilosc_sztuk, data_zlozenia, id_dostawcy)
-                            VALUES ($product_id, $client_id, '$payment', 'W trakcie realizacji', $count, '$date', $supplier_id);";
-                            $res=mysqli_query($conn, $sql);
-                        }
-                    ?>
             </div>
         </main>
 
