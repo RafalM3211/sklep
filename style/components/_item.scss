@@ -38,8 +38,8 @@
         .type{
             width: fit-content;
             padding: 5px 10px;
-            border: 1px solid rgb(62 149 190);
-            color: rgb(62 149 190);
+            border: 1px solid rgb(62, 149, 190);
+            color: rgb(62, 149, 190);
             margin-top: 2em;
         }
 
@@ -68,7 +68,7 @@
         }
 
         .wodka{
-            @include type-color(rgb(62 149 190));
+            @include type-color(rgb(62, 149, 190));
         }
     }
 

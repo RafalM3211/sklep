@@ -54,7 +54,7 @@
 
         <main class="section-two">
             <div class="container">
-                <div classs="big-search">
+                <div class="big-search">
                     <p>wyszukaj produkt</p>
                     <form class="search" action="search.php" method="POST" >
                         <input type="text" name="search-text" placeholder="Wpisz frazę aby wyszukać"/>
