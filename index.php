@@ -39,7 +39,7 @@
                     <a href="#best"><li>Bestsellery</li></a>
                     <a href="#formular"><li>formularz</li></a>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><li>logowanie</li></a>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><li>kontakt</li></a>
+                    <a href="search.php" target="_blank"><li>wyszukaj</li></a>
                     <li>
                         <form class="search" action="search.php" method="POST" >
                             <input type="text" name="search-text" placeholder="Wyszukaj" size="6"/>
