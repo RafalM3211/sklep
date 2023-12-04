@@ -507,8 +507,11 @@ html {
 
 .big-search {
   margin-top: 5em;
+  margin-inline: auto;
   position: relative;
-  z-index: 213;
+  z-index: 10;
+  width: 60%;
+  font-size: 1.1em;
 }
 .big-search .search {
   display: flex;
@@ -521,18 +524,18 @@ html {
 .big-search .search h2 {
   font-size: 2em;
 }
-.big-search .search input[type=text] {
+.big-search .search .text-input {
   border: none;
   appearance: none;
   outline: none;
   padding: 0px;
-  width: 150px;
+  width: 90%;
   background-color: transparent;
-  font-size: 15px;
+  font-size: 1em;
   padding: 7px 10px;
   opacity: 70%;
 }
-.big-search .search input[type=text]:focus {
+.big-search .search .text-input:focus {
   color: #3e95be;
   transition: 0.1s;
 }
