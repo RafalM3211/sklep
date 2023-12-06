@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 31 Paź 2023, 13:58
--- Wersja serwera: 10.4.21-MariaDB
--- Wersja PHP: 7.4.23
+-- Czas generowania: 06 Gru 2023, 11:53
+-- Wersja serwera: 10.4.22-MariaDB
+-- Wersja PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -164,7 +164,8 @@ INSERT INTO `zamowienia` (`id_zamowienia`, `id_produktu`, `id_klienta`, `sposob_
 (7, 7, 2, 'Karta kredytowa', 'Zakończone', 4, '2023-03-25 10:15:00', '2023-03-29 14:20:00', 3),
 (8, 8, 3, 'Przelew bankowy', 'Wysłane', 6, '2023-03-26 12:45:00', '2023-03-30 13:30:00', 4),
 (9, 9, 4, 'Gotówka', 'W trakcie realizacji', 9, '2023-03-28 09:30:00', NULL, 5),
-(10, 10, 5, 'Karta kredytowa', 'Wysłane', 5, '2023-03-30 14:00:00', '2023-04-03 15:15:00', 1);
+(10, 10, 5, 'Karta kredytowa', 'Wysłane', 5, '2023-03-30 14:00:00', '2023-04-03 15:15:00', 1),
+(11, 12, 1, 'gotówka', 'W trakcie realizacji', 4, '2023-12-06 11:51:53', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -178,34 +179,35 @@ CREATE TABLE `zarejestrowani_klienci` (
   `nazwisko_klienta` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
   `adres_email` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
   `numer_telefonu` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
-  `adres` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL
+  `adres` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL,
+  `haslo` varchar(45) COLLATE utf8_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `zarejestrowani_klienci`
 --
 
-INSERT INTO `zarejestrowani_klienci` (`id_klienta`, `imie_klienta`, `nazwisko_klienta`, `adres_email`, `numer_telefonu`, `adres`) VALUES
-(1, 'Anna', 'Kowalska', 'anna@example.com', '123-456-789', 'ul. Kwiatowa 1'),
-(2, 'Jan', 'Nowak', 'jan@example.com', '987-654-321', 'ul. Słoneczna 5'),
-(3, 'Karolina', 'Wiśniewska', 'karolina@example.com', '555-123-789', 'ul. Ogrodowa 12'),
-(4, 'Marek', 'Kwiatkowski', 'marek@example.com', '111-222-333', 'ul. Leśna 8'),
-(5, 'Ewa', 'Jankowska', 'ewa@example.com', '999-888-777', 'ul. Polna 2'),
-(6, 'Piotr', 'Kaczmarek', 'piotr@example.com', '444-555-666', 'ul. Zielona 15'),
-(7, 'Katarzyna', 'Nowakowska', 'katarzyna@example.com', '777-888-999', 'ul. Miodowa 7'),
-(8, 'Robert', 'Dąbrowski', 'robert@example.com', '666-777-888', 'ul. Krótka 3'),
-(9, 'Magdalena', 'Zawadzka', 'magdalena@example.com', '222-333-444', 'ul. Jagodowa 10'),
-(10, 'Łukasz', 'Kowalczyk', 'lukasz@example.com', '888-777-666', 'ul. Malinowa 6'),
-(11, 'Alicja', 'Gajos', 'alicja@example.com', '555-444-333', 'ul. Sosnowa 4'),
-(12, 'Tomasz', 'Olszewski', 'tomasz@example.com', '222-999-444', 'ul. Brzozowa 9'),
-(13, 'Małgorzata', 'Szymańska', 'malgorzata@example.com', '111-333-555', 'ul. Kasztanowa 14'),
-(14, 'Kamil', 'Lis', 'kamil@example.com', '999-222-444', 'ul. Lipowa 11'),
-(15, 'Agnieszka', 'Pawlak', 'agnieszka@example.com', '777-111-555', 'ul. Wiśniowa 16'),
-(16, 'Marcin', 'Wojciechowski', 'marcin@example.com', '333-777-888', 'ul. Morelowa 17'),
-(17, 'Monika', 'Kaczmarek', 'monika@example.com', '444-999-666', 'ul. Klonowa 13'),
-(18, 'Artur', 'Nowicki', 'artur@example.com', '666-444-222', 'ul. Dębowa 18'),
-(19, 'Patrycja', 'Wójcik', 'patrycja@example.com', '555-999-333', 'ul. Akacjowa 19'),
-(20, 'Bartosz', 'Jaworski', 'bartosz@example.com', '111-222-444', 'ul. Cisowa 20');
+INSERT INTO `zarejestrowani_klienci` (`id_klienta`, `imie_klienta`, `nazwisko_klienta`, `adres_email`, `numer_telefonu`, `adres`, `haslo`) VALUES
+(1, 'Anna', 'Kowalska', 'anna@example.com', '123-456-789', 'ul. Kwiatowa 1', 'qwerty'),
+(2, 'Jan', 'Nowak', 'jan@example.com', '987-654-321', 'ul. Słoneczna 5', 'qwerty'),
+(3, 'Karolina', 'Wiśniewska', 'karolina@example.com', '555-123-789', 'ul. Ogrodowa 12', 'qwerty'),
+(4, 'Marek', 'Kwiatkowski', 'marek@example.com', '111-222-333', 'ul. Leśna 8', 'qwerty'),
+(5, 'Ewa', 'Jankowska', 'ewa@example.com', '999-888-777', 'ul. Polna 2', 'qwerty'),
+(6, 'Piotr', 'Kaczmarek', 'piotr@example.com', '444-555-666', 'ul. Zielona 15', 'qwerty'),
+(7, 'Katarzyna', 'Nowakowska', 'katarzyna@example.com', '777-888-999', 'ul. Miodowa 7', 'qwerty'),
+(8, 'Robert', 'Dąbrowski', 'robert@example.com', '666-777-888', 'ul. Krótka 3', 'qwerty'),
+(9, 'Magdalena', 'Zawadzka', 'magdalena@example.com', '222-333-444', 'ul. Jagodowa 10', 'qwerty'),
+(10, 'Łukasz', 'Kowalczyk', 'lukasz@example.com', '888-777-666', 'ul. Malinowa 6', 'qwerty'),
+(11, 'Alicja', 'Gajos', 'alicja@example.com', '555-444-333', 'ul. Sosnowa 4', 'qwerty'),
+(12, 'Tomasz', 'Olszewski', 'tomasz@example.com', '222-999-444', 'ul. Brzozowa 9', 'qwerty'),
+(13, 'Małgorzata', 'Szymańska', 'malgorzata@example.com', '111-333-555', 'ul. Kasztanowa 14', 'qwerty'),
+(14, 'Kamil', 'Lis', 'kamil@example.com', '999-222-444', 'ul. Lipowa 11', 'qwerty'),
+(15, 'Agnieszka', 'Pawlak', 'agnieszka@example.com', '777-111-555', 'ul. Wiśniowa 16', 'qwerty'),
+(16, 'Marcin', 'Wojciechowski', 'marcin@example.com', '333-777-888', 'ul. Morelowa 17', 'qwerty'),
+(17, 'Monika', 'Kaczmarek', 'monika@example.com', '444-999-666', 'ul. Klonowa 13', 'qwerty'),
+(18, 'Artur', 'Nowicki', 'artur@example.com', '666-444-222', 'ul. Dębowa 18', 'qwerty'),
+(19, 'Patrycja', 'Wójcik', 'patrycja@example.com', '555-999-333', 'ul. Akacjowa 19', 'qwerty'),
+(20, 'Bartosz', 'Jaworski', 'bartosz@example.com', '111-222-444', 'ul. Cisowa 20', 'qwerty');
 
 -- --------------------------------------------------------
 
@@ -280,7 +282,7 @@ ALTER TABLE `produkty`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_zamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT dla tabeli `zarejestrowani_klienci`

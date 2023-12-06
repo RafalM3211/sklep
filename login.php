@@ -82,7 +82,6 @@
                     }
                 }
 
-                // Pzyklad: $_SESSION['uzytkownik']->imie_klienta CHYBA TAK TO DZIAŁA
                 mysqli_close($baza);
             ?>
         </main>

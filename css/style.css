@@ -29,6 +29,7 @@
   color: rgb(95, 95, 95);
 }
 .item .left .type {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 5px 10px;
   border: 1px solid rgb(62, 149, 190);
@@ -365,7 +366,9 @@ html {
 }
 .section-one nav .search input[type=text] {
   border: none;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   outline: none;
   padding: 0px;
   width: 150px;
@@ -576,7 +579,9 @@ html {
 }
 .big-search .search .text-input {
   border: none;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   outline: none;
   padding: 0px;
   width: 90%;
